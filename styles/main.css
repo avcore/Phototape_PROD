@@ -3346,8 +3346,8 @@ textarea {
   position: absolute;
   top: 0;
   right: 0;
-  width: 59px;
-  height: 59px;
+  width: 54px;
+  height: 54px;
   line-height: 59px;
   font-size: 30px;
   background: #1b1b1b;
@@ -3520,6 +3520,11 @@ textarea {
 .popup-window-img-container p {
   margin: 12px 0 30px 0;
 }
+
+.popup-window-content p {
+  font-size: 14px;
+}
+
 .popup-window-content .first-heading,
 .popup-window-content-big .first-heading,
 .popup-window-header .first-heading,
@@ -3528,7 +3533,7 @@ textarea {
 }
 .popup-window-content {
   background-color: #111111;
-  padding: 13px 30px 8px 30px;
+  padding: 1px 12px 1px 12px;
 }
 .popup-window-content .popup-side-img {
   width: 50%;
@@ -3556,7 +3561,7 @@ textarea {
 .popup-window-detail {
   font-size: 14px;
   background-color: #1b1b1b;
-  padding: 12px 30px;
+  padding: 4px 12px;
   overflow: auto;
   line-height: 1.8;
 }
@@ -3584,7 +3589,7 @@ textarea {
 }
 .popup-window-header {
   position: relative;
-  padding: 25px 85px 23px 30px;
+  padding: 14px 85px 14px 20px;
 }
 .popup-window-header h2 {
   text-transform: uppercase;
@@ -3593,7 +3598,7 @@ textarea {
 }
 .popup-window-header h3 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 24px;
   margin: 0;
 }
 .popup-window-single {
@@ -6484,6 +6489,10 @@ textarea {
   .col-lg-12-5 {
     float: left;
     width: 20%;
+  }
+
+  .container-custom {
+    width: 500px;
   }
 }
 @media (min-width: 1400px) {
