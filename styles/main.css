@@ -6485,6 +6485,10 @@ textarea {
     float: left;
     width: 20%;
   }
+
+  .container-custom {
+    width: 700px;
+  }
 }
 @media (min-width: 1400px) {
   .col-xl-12-5 {
