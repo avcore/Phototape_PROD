@@ -303,7 +303,7 @@ $(document).ready(function(e) {
 	$('.popup-window-trigger').on('click', function(e) {
 		e.preventDefault();
 		var popup = $($(this).data('popup'));
-		console.log('popup: ', popup);
+		// console.log('popup: ', popup);
 		openPopup(popup);
 	});
 	
@@ -334,11 +334,10 @@ $(document).ready(function(e) {
 	});
 	
 	function openPopup(popup_window) {
-		console.log('popup_window.height(): ', popup_window.height());
-		console.log('$(window).scrollTop(): ', $(window).scrollTop());
-		console.log('$(document).height(): ', $(document).height());
-		console.log('is: ', popup_window.height() + $(window).scrollTop() > $(document).height());
-
+		// console.log('popup_window.height(): ', popup_window.height());
+		// console.log('$(window).scrollTop(): ', $(window).scrollTop());
+		// console.log('$(document).height(): ', $(document).height());
+		// console.log('is: ', popup_window.height() + $(window).scrollTop() > $(document).height());
 		// #dontjumptotop
 		popup_window.css('top', $(window).scrollTop());
 		popup_window.addClass('active');
@@ -690,3 +689,20 @@ function showReturnMessage(form_el) {
 $('.return-msg').on('click', function(e) {
 	$(this).removeClass('show-return-msg');
 });
+
+/*popup for orders
+	Привязывается попап для создания заказа
+ */
+$('.show_order_popup').click(function() {
+	let popup_id = $('#order_' + $(this).attr("rel"));
+	$(popup_id).css('display', 'flex');
+	$('.order_overlay_popup').show();
+})
+
+function closeOrderPopup() {
+	$('.order_overlay_popup, .order_popup').hide();
+}
+
+$('.order_overlay_popup').click(function() {
+	$('.order_overlay_popup, .order_popup').hide();
+})
