@@ -303,6 +303,7 @@ $(document).ready(function(e) {
 	$('.popup-window-trigger').on('click', function(e) {
 		e.preventDefault();
 		var popup = $($(this).data('popup'));
+		// console.log('popup: ', popup);
 		openPopup(popup);
 	});
 	
@@ -333,14 +334,25 @@ $(document).ready(function(e) {
 	});
 	
 	function openPopup(popup_window) {
-		if(popup_window.height() + $(window).scrollTop() > $(document).height()) {
-			$.scrollTo(0, 300, {axis:'y'});
-			popup_window.css('top', 0);
-		}
-		else
-			popup_window.css('top', $(window).scrollTop());
+		// console.log('popup_window.height(): ', popup_window.height());
+		// console.log('$(window).scrollTop(): ', $(window).scrollTop());
+		// console.log('$(document).height(): ', $(document).height());
+		// console.log('is: ', popup_window.height() + $(window).scrollTop() > $(document).height());
+		// #dontjumptotop
+		popup_window.css('top', $(window).scrollTop());
 		popup_window.addClass('active');
 		page_screen_cover.addClass('active');
+
+		// TODO если большая высота, то окно слайдера отбрасывается наверх.
+		// при необходимости такого поведения закомментировать блок #dontjumptotop и раскомментировать этот
+		// if(popup_window.height() + $(window).scrollTop() > $(document).height()) {
+		// 	$.scrollTo(0, 300, {axis:'y'});
+		// 	popup_window.css('top', 0);
+		// }
+		// else
+		// 	popup_window.css('top', $(window).scrollTop());
+		// popup_window.addClass('active');
+		// page_screen_cover.addClass('active');
 	}
 	
 	function closePopups(clear_screen) {
@@ -677,3 +689,20 @@ function showReturnMessage(form_el) {
 $('.return-msg').on('click', function(e) {
 	$(this).removeClass('show-return-msg');
 });
+
+/*popup for orders
+	Привязывается попап для создания заказа
+ */
+$('.show_order_popup').click(function() {
+	let popup_id = $('#order_' + $(this).attr("rel"));
+	$(popup_id).css('display', 'flex');
+	$('.order_overlay_popup').show();
+})
+
+function closeOrderPopup() {
+	$('.order_overlay_popup, .order_popup').hide();
+}
+
+$('.order_overlay_popup').click(function() {
+	$('.order_overlay_popup, .order_popup').hide();
+})
