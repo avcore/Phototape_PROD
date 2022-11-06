@@ -411,12 +411,45 @@ $(document).ready(function(e) {
 	
 	
 	//contact forms
-	$('#form-contact').on('submit', function(e) {
-		return form_to_ajax_request($(this), ['name', 'email', 'phone', 'message'], ['email', 'message']);
-	});
-	$('#form-contact2').on('submit', function(e) {
-		return form_to_ajax_request($(this), ['name', 'email', 'phone', 'message'], ['email', 'message']);
-	});
+	$('#form-contactX').on('submit', 
+		function(e) {
+			var val = Object.fromEntries(new FormData(e.target));
+
+			$.ajax(
+			   {
+					url: "http://94.103.83.231:3322/contacts/send/",
+					type: "POST",
+					data: val,
+					dataType: 'json',
+					async: false,
+					success: function(msg) {
+						alert(msg);
+					}
+				}
+			);
+			return false;
+		}
+	);
+	
+	$('#form-contact2').on('submit', 
+		function(e) {
+			var val = Object.fromEntries(new FormData(e.target));
+
+			$.ajax(
+			   {
+					url: "http://94.103.83.231:3322/contacts/send/",
+					type: "POST",
+					data: val,
+					dataType: 'json',
+					async: false,
+					success: function(msg) {
+						alert(msg);
+					}
+				}
+			);	
+			return false;
+		}
+	);
 });
 
 $(window).load(function(e) {
@@ -706,3 +739,23 @@ function closeOrderPopup() {
 $('.order_overlay_popup').click(function() {
 	$('.order_overlay_popup, .order_popup').hide();
 })
+
+function sendForm(form)
+{
+  var val = Object.fromEntries(new FormData(form));
+
+  $.ajax(
+     {
+      url: "http://94.103.83.231:3322/contacts/send/",
+      type: "POST",
+      dataType: 'json',
+      contentType: 'application/json',
+      data: JSON.stringify(val),
+      async: false,
+      success: function(msg) {
+        // alert(msg);
+		closeOrderPopup();
+      }
+    }
+  );
+}

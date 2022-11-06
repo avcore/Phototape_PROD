@@ -113,8 +113,8 @@
           <div class="text-center">
             <a href="https://www.instagram.com/korneph/" target="_blank"><i class="fa fa-instagram"></i></a>
             <a href="https://vk.com/onephototape" target="_blank"><i class="fa fa-vk"></i></a>
-            <a href="https://t.me/velmoje" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=79999990021" target="_blank"><i
+            <a href="https://t.me/korneph" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=79996660001" target="_blank"><i
                     class="fa fa-whatsapp"></i></a>
           </div>
           <div class="margin-10"></div>
@@ -163,9 +163,9 @@
                 <a href="https://www.instagram.com/korneph/" target="_blank"><i
                         class="fa fa-instagram"></i></a>
                 <a href="https://vk.com/onephototape" target="_blank"><i class="fa fa-vk"></i></a>
-                <a href="https://t.me/velmoje" target="_blank"><i class="fa fa-telegram"
+                <a href="https://t.me/korneph" target="_blank"><i class="fa fa-telegram"
                                                                   aria-hidden="true"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=79999990021" target="_blank"><i
+                <a href="https://api.whatsapp.com/send?phone=79996660001" target="_blank"><i
                         class="fa fa-whatsapp"></i></a>
 
               </div>
@@ -378,16 +378,16 @@
           <div class="col-md-3 onscroll-animate content-column" data-animation="fadeInUp">
             <address>
               <p>Россия, Москва.</p>
-              <a href="tel:+79999990021"><p>Tel: +7(999) 999 00 21</p></a>
+              <a href="tel:+79996660001"><p>Tel: +7(999)6660001</p></a>
               <p><a href="#">info@korneph</a></p>
               <p>
                 <a href="https://www.instagram.com/korneph/" target="_blank"><i
                         class="fa fa-instagram social-icon"></i></a>
                 <a href="https://vk.com/onephototape" target="_blank"><i
                         class="fa fa-vk social-icon"></i></a>
-                <a href="https://t.me/velmoje" target="_blank"><i
+                <a href="https://t.me/korneph" target="_blank"><i
                         class="fa fa-telegram social-icon"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=79999990021" target="_blank"><i
+                <a href="https://api.whatsapp.com/send?phone=79996660001" target="_blank"><i
                         class="fa fa-whatsapp social-icon"></i></a>
               </p>
             </address>
@@ -601,7 +601,7 @@
 <div class="order_popup" id="order_popup1" onclick="closeOrderPopup(this)">
   <div class="order_object" onclick="event.stopImmediatePropagation();event.preventDefault();">
     <div class="form-wrapper">
-      <form id="form-contact" method="POST" class="contact-form" autocomplete="off" enctype="multipart/form-data">
+      <form id="form-contact" method="POST" class="contact-form" autocomplete="off" enctype="application/x-www-form-urlencoded">
         <p class="contact-form__title">Обратная связь.Отправьте свое пожелание и мы с вами свяжемся!</p>
         <div class="preloader"></div>
         <p class="contact-form__message"></p>
@@ -613,7 +613,7 @@
         </div>
          
         <div class="contact-form__input-wrapper contact-form__input-wrapper_name">
-          <input name="text" type="text" class="contact-form__input contact-form__input_name"
+          <input name="suggestion" type="text" class="contact-form__input contact-form__input_name"
                  placeholder="Ваше пожелание">
         </div>
         <!-- Поле с телефоном -->
@@ -629,12 +629,33 @@
                value="заявка с сайта korneph.ru">
   
         <!--Кнопка отправки формы-->
-       <a href="https://t.me/velmoje"><button  class="contact-form__button">Отправить</button></a>
-  
+        <input type="button" class="contact-form__button" onclick="sendForm(this.form)" value="Отправить" />
+        <!-- <a href="https://t.me/korneph"><button  class="contact-form__button">Отправить</button></a> -->
+        <!-- <input type="submit" value="Отправить" /> -->
+        <!-- <input type="button" onclick="this.form.submit()" value="Отправить" /> -->
       </form>
     </div>
   </div>
 </div>
+<!-- <script>
+  function sendForm(form)
+  {
+    var val = Object.fromEntries(new FormData(form));
+  
+    $.ajax(
+       {
+        url: "http://94.103.83.231:3322/contacts/send/",
+        type: "POST",
+        data: val,
+        dataType: 'json',
+        async: false,
+        success: function(msg) {
+          alert(msg);
+        }
+      }
+    );
+  }
+  </script> -->
 <script>
 
   // Кастомизация поля с файлом. Подробнее тут: https://smartlanding.biz/stilizaciya-input-type-file.html
